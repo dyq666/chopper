@@ -47,11 +47,17 @@
     pf = push -f
     update = pull upstream master
 
+    # remote
+    nrem = remote add origin
+    lrem = remote -v
+
+    # rebase
+    ri = rebase -i
+    mergeri = rebase -i HEAD^^ # 目的是合并前两个 commit
+
     # other
     d = diff
     s = status
-    ri = rebase -i
-    lremote = remote -v
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
 [color]
