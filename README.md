@@ -13,7 +13,7 @@
 
 ## 具体配置文件说明 & 应用
 
-1. git
+### 1. git
   - 一些命令的缩小 & 一些注释
   - 生成配置文件 `python3 gen_conf.py git -n <name> -e <email>`
   - 复制一份配置文件 `cp conf/git.conf ~/.gitconfig`
