@@ -1,25 +1,26 @@
-#!/usr/local/bin/python3
 import argparse
-from argparse import Namespace
+from typing import TYPE_CHECKING
 
-parser = argparse.ArgumentParser(description='Desc: generate some config files.')
-sub_parser = parser.add_subparsers()
+if TYPE_CHECKING:
+    from argparse import Namespace
 
 
-# handler
 def get_template(type_: str) -> str:
-    tmpl = f'template/{type_}.conf'
+    tmpl = 'template/%s.conf' % type_
     with open(tmpl, 'r') as f:
         return f.read()
 
 
-def handle_git(args: Namespace) -> None:
+def handle_git(args: 'Namespace') -> None:
     type_ = 'git'
-    with open(f'conf/{type_}.conf', 'w') as f:
+    with open('conf/%s.conf' % type_, 'w') as f:
         name, email = args.name, args.email
         tmpl = get_template(type_)
         f.write(tmpl.format(name=name, email=email))
 
+
+parser = argparse.ArgumentParser(description='Desc: generate some config files.')
+sub_parser = parser.add_subparsers()
 
 # git parser
 git = sub_parser.add_parser('git')
