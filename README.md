@@ -10,7 +10,6 @@
 
 - `gen_conf.py` 通过 Python 脚本将模板变为配置文件
 
-
 ## 具体配置文件说明 & 应用
 
 ### .gitconfig
@@ -24,3 +23,7 @@
 ### .gitignore
 
 `cp template/gitignore.conf <your_path>/.gitignore`
+
+### .flaskenv
+
+`cp conf/flaskenv.conf <your_path>`
