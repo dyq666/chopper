@@ -16,7 +16,7 @@
 
   - 一些命令的缩小 & 一些注释
  
-  - 生成配置文件 `python3 gen_conf.py git -n <name> -e <email>`
+  - 生成配置文件 `python3 gen_conf.py git --name <name> --email <email>`
 
   - 复制一份配置文件 `ln -s conf/git.conf ~/.gitconfig`
 
