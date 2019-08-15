@@ -6,7 +6,7 @@ if TYPE_CHECKING:
 
 
 def get_template(type_: str) -> str:
-    tmpl = 'template/%s.conf' % type_
+    tmpl = 'template/%s.tmpl' % type_
     with open(tmpl, 'r') as f:
         return f.read()
 

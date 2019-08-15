@@ -12,11 +12,11 @@
 
 ## 具体配置文件说明 & 应用
 
-### flaskenv.conf
+### flaskenv.tmpl
 
 `cp conf/flaskenv.conf <your_path>/.flaskenv`
 
-### git.conf
+### git.tmpl
 
   - 一些命令的缩小 & 一些注释
  
@@ -24,11 +24,11 @@
 
   - 复制一份配置文件 `ln -s conf/git.conf ~/.gitconfig`
 
-### gitignore.conf
+### gitignore.tmpl
 
-`cp template/gitignore.conf <your_path>/.gitignore`
+`cp template/gitignore.tmpl <your_path>/.gitignore`
 
-### makefile.conf
+### makefile.tmpl
 
-`cp template/makefile.conf <your_path>/Makefile`
+`cp template/makefile.tmpl <your_path>/Makefile`
 
