@@ -37,9 +37,9 @@
 [alias]
     # add & commit
     a = add
-    c = commit -m  # <msg>
     aa = add -A
     aac = !git add -A && git commit -m  # <msg>
+    c = commit -m  # <msg>
     cmsg = commit --amend  # 修改最后一个 commit 的 msg
 
     # branch
@@ -82,8 +82,8 @@
     resetallcommit = update-ref -d HEAD  # 重置所有 commit, 仅用于项目初期
 
     # status
-    df = diff
-    dfall = diff --cache
+    d = diff  # default is unstaged
+    dfstaged = diff --staged
     s = status --short
     sall = status
 
