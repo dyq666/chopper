@@ -24,7 +24,12 @@
 
 # 文件状态转移图 (恢复命令的 alias 都在下面的 recover 中)
 #
-# default           untracked                 staged                 modified                   unmodified
+#                                            commited
+#
+#                            g reset HEAD^ <-   ^    -> g reset HEAD^
+#                                             g commit
+#                                               |
+# default           untracked                 staged                 modified                  unmodified
 #         touch ->                   g add ->        <- g add                 <- vim | rm
 #
 #         rm    <-            g reset HEAD <-        -> g reset HEAD          -> g checkout --
@@ -70,11 +75,11 @@
     mergefirstri = rebase -i --root
 
     # recover
-    recoveradd = reset HEAD      # <file>  staged -> modified | untracked
-    recovermodify = checkout --  # <file>  modified -> unmodified
-    recovertouch = !rm           # <file>  untracked -> default
-    recoverstage = reset HEAD^   # <file>  commited -> modified | untracked
-    recoverinit = update-ref -d HEAD  # 重置所有 commit, 仅用于项目初期
+    recoveradd = reset HEAD       # <file>  staged -> modified | untracked
+    recovermodify = checkout --   # <file>  modified -> unmodified
+    recovertouch = !rm            # <file>  untracked -> default
+    recovercommit = reset HEAD^   #         commited -> modified | untracked
+    resetallcommit = update-ref -d HEAD  # 重置所有 commit, 仅用于项目初期
 
     # status
     df = diff
