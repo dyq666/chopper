@@ -33,3 +33,13 @@
 注意 Makefile 中必须使用 tab 而不是空格
 
   - `cp template/makefile.tmpl <your_path>/Makefile`
+
+## 代码
+
+### 如何增加新的模板以及生成脚本
+
+- 在 template/ 中创建一个新的文件 <foo>.tmpl
+
+- 在 gen.CmdType 中新增一个常量, 以及 CmdType.Vars 设置模板中对应的变量名
+
+- 在 gen 中写一个 sub parser
