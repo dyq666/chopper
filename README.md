@@ -8,19 +8,19 @@
 
 - `/conf` 最终配置文件生成的位置
 
-- `gen_conf.py` 将模板转为配置文件的脚本
+- `gen.py` 将模板转为配置文件的脚本
 
 ## 具体配置文件说明 & 应用
 
 ### flaskenv.tmpl
 
-  - 生成配置文件 `python3 gen_conf.py flaskenv --app <app> --port <port>`
+  - 生成配置文件 `python3 gen.py flaskenv --app <app> --port <port>`
 
   - copy 复制文件 `cp conf/flaskenv.conf <your_path>/.flaskenv`
 
 ### git.tmpl
 
-  - 生成配置文件 `python3 gen_conf.py git --name <name> --email <email>`
+  - 生成配置文件 `python3 gen.py git --name <name> --email <email>`
 
   - link 配置文件 `ln -s conf/git.conf ~/.gitconfig`
 
