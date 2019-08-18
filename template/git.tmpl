@@ -13,16 +13,6 @@
 # (option) git config user.name <name>
 # (option) git config config user.email <email>
 
-# alias 中的命令起始字母缩写的全称
-# n -> new    增
-# d -> delete 删
-# c -> change 改
-# v -> view   查
-# l -> list   列
-
-# alias 中注释的意义
-# 1. <xx> 代表命令后面需要参数, 例如 `c = commit -m  # <msg>`, 实际使用 `git c 'init project'`
-
 # 文件状态转移图 (恢复命令的 alias 都在下面的 alias.recover 中)
 #
 #                                            commited
@@ -36,7 +26,26 @@
 #
 #         rm    <-            g reset HEAD <-        -> g reset HEAD          -> g checkout --
 
+# 分支
+# merge, 1 fast-foraward, 如果被合并的分支祖先是当前的分支.
+#        2 merge, 如果被合并的分支祖先不是当前的分支, 那么就从二者共同的祖先开始到双方最后一个 commit 进行合并. 如果没有冲突, 那么 git 会自动
+#                 创建一个新的 commit 作为二者合并的 commit, 如果有冲突, 那么就需要手动解决冲突后, g aac, 手动创建一个 合并的 commit
+#                 冲突两个分支修改了相同文件的相同部分
+# rebase, 1 无冲突, 通常是新分支 rebase 旧分支, 然后旧分支在 merge 新分支. 新分支 rebase 旧分支后, 就将旧分支在创建新分支后修改的内容, 同步
+#           到了 commit 的历史中, 这样就使新分支的祖先是旧分支最后一个 commit 了. 因此在切换到旧分支就可以执行 fast-forawrad merge 了.
+#         2 有冲突
+
 [alias]
+    # alias 中的命令起始字母缩写的全称
+    # n -> new    增
+    # d -> delete 删
+    # c -> change 改
+    # v -> view   查
+    # l -> list   列
+
+    # alias 中注释的意义
+    # 1. <xx> 代表命令后面需要参数, 例如 `c = commit -m  # <msg>`, 实际使用 `git c 'init project'`
+
     # add & commit
     a = add
     aa = add -A
@@ -46,11 +55,11 @@
     cmsg = commit --amend  # 修改最后一个 commit 的 msg
 
     # branch
-    nb = checkout -b  # <branch>
-    db = branch -D  # <branch>
+    nb = checkout -b  # <branch>, 创建并切换到新分支
+    db = branch -D  # <branch>, 无论分支是否被 merged 都允许被删除. 如果只允许删除 merged 的分支, 那么使用 -d 代替 -D
     cb = checkout  # <branch>
     cbm = checkout master
-    lb = !git branch | cat
+    lb = !git branch -v | cat
 
     # stash
     nsh = stash push --include-untracked  # 存储所有状态的文件
@@ -64,6 +73,7 @@
     pf = push -f
     pullcurrent = !git pull origin $(git rev-parse --abbrev-ref HEAD)  # 将 origin 中与当前分支同名的分支 pull 下来
     update = pull upstream master
+    updaterebase = pull upstream master --rebase
 
     # remote
     norigin = remote add origin  # <repo_path>
