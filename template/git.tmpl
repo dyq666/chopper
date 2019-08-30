@@ -89,8 +89,8 @@
 
     # rebase
     ri = rebase -i  # <commit_id>
-    mergeri = rebase -i HEAD^^  # 通常用于合并前两个 commit
-    mergefirstri = rebase -i --root  # 从第一个 commit 开始 rebase
+    ri2 = rebase -i HEAD^^  # 通常用于 rebase 最后两个 commit
+    riall = rebase -i --root  # rebase 所有 commit
 
     # recover
     recoveradd = reset HEAD       # <file>  staged    -> modified | untracked
