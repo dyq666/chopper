@@ -28,6 +28,10 @@
 
   - `cp template/gitignore.tmpl <your_path>/.gitignore`
 
+### ipython_shell.tmpl
+
+  - `cp template/ipython_shell.tmpl <your_path>/shell.py`
+
 ### makefile.tmpl
 
 注意 Makefile 中必须使用 tab 而不是空格
