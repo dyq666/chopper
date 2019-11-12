@@ -32,12 +32,6 @@
 
   - `cp template/ipython_shell.tmpl <your_path>/shell.py`
 
-### makefile.tmpl
-
-注意 Makefile 中必须使用 tab 而不是空格
-
-  - `cp template/makefile.tmpl <your_path>/Makefile`
-
 ## 代码
 
 ### 如何增加新的模板以及生成脚本
